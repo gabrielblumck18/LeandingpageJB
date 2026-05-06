@@ -1,0 +1,974 @@
+/* =========================================================
+   ESSÊNCIA NATURAL — FOLHA DE ESTILO
+   Paleta validada conforme WCAG 2.1 níveis AA e AAA
+   ========================================================= */
+
+/* Variáveis globais */
+:root {
+    --cor-primaria: #3D5A3D;
+    --cor-primaria-clara: #4F7350;
+    --cor-secundaria: #1E4E72;
+    --cor-fundo: #FAF7F2;
+    --cor-fundo-cartao: #FFFFFF;
+    --cor-acento: #8FBEDC;
+    --cor-acento-suave: #D4E5F0;
+    --cor-neutra: #8C9E92;
+    --cor-rodape: #14334D;
+    --cor-creme: #FAF7F2;
+
+    --fonte-titulo: 'Bodoni Moda', 'Playfair Display', serif;
+    --fonte-corpo: 'Montserrat', system-ui, sans-serif;
+    --fonte-elegante: 'Cormorant Garamond', serif;
+
+    --largura-maxima: 1200px;
+    --espacamento-secao: 96px;
+    --espacamento-secao-mobile: 64px;
+    --raio-borda: 12px;
+
+    --transicao-padrao: 300ms cubic-bezier(0.4, 0, 0.2, 1);
+
+    --sombra-suave: 0 2px 12px rgba(20, 51, 77, 0.06);
+    --sombra-cartao: 0 4px 20px rgba(20, 51, 77, 0.08);
+    --sombra-elevada: 0 12px 30px rgba(20, 51, 77, 0.12);
+}
+
+/* Redefinições base */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+    font-size: 16px;
+}
+
+body {
+    font-family: var(--fonte-corpo);
+    font-size: 1.0625rem;
+    line-height: 1.7;
+    color: var(--cor-secundaria);
+    background-color: var(--cor-fundo);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+img, svg {
+    max-width: 100%;
+    display: block;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+    transition: color var(--transicao-padrao);
+}
+
+button {
+    font-family: inherit;
+    cursor: pointer;
+    border: none;
+    background: none;
+}
+
+ul {
+    list-style: none;
+}
+
+/* Acessibilidade */
+.visualmente-oculto {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+:focus-visible {
+    outline: 3px solid var(--cor-acento);
+    outline-offset: 3px;
+    border-radius: 4px;
+}
+
+/* Tipografia */
+h1, h2, h3, h4 {
+    font-family: var(--fonte-titulo);
+    font-weight: 500; /* Bodoni fica mais elegante com pesos médios */
+    line-height: 1.1;
+    color: var(--cor-primaria);
+    letter-spacing: -0.02em;
+}
+
+h1 { 
+    font-size: clamp(2.8rem, 7vw, 4.5rem); 
+    font-style: italic; /* O itálico da Bodoni é extremamente elegante */
+}
+
+h2 { 
+    font-size: clamp(2.2rem, 5.5vw, 3.2rem); 
+}
+
+.superior {
+    display: inline-block;
+    font-family: var(--fonte-elegante);
+    font-size: 1.2rem;
+    font-style: italic;
+    font-weight: 400;
+    letter-spacing: 0.1em;
+    color: var(--cor-neutra);
+    margin-bottom: 16px;
+    text-transform: lowercase; /* Estilo editorial chic */
+}
+
+.subtitulo {
+    font-family: var(--fonte-elegante);
+    font-size: clamp(1.3rem, 3vw, 1.6rem);
+    font-style: italic;
+    margin-bottom: 40px;
+    color: rgba(250, 247, 242, 0.95);
+    line-height: 1.5;
+    font-weight: 300;
+}
+
+.descricao-secao {
+    max-width: 720px;
+    margin: 16px auto 56px;
+    text-align: center;
+    font-family: var(--fonte-elegante);
+    font-size: 1.3rem;
+    font-style: italic;
+    font-weight: 400;
+    color: var(--cor-secundaria);
+}
+
+/* Estrutura de conteúdo */
+.conteudo-secao {
+    max-width: var(--largura-maxima);
+    margin: 0 auto;
+    padding: 0 24px;
+    position: relative;
+}
+
+main > section {
+    padding: var(--espacamento-secao) 0;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Botões */
+.botao {
+    display: inline-block;
+    padding: 14px 32px;
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    border-radius: var(--raio-borda);
+    transition: all var(--transicao-padrao);
+    text-align: center;
+}
+
+.botao-principal {
+    background-color: var(--cor-primaria);
+    color: var(--cor-creme);
+    box-shadow: var(--sombra-suave);
+}
+
+.botao-principal:hover,
+.botao-principal:focus-visible {
+    background-color: var(--cor-primaria-clara);
+    transform: translateY(-2px);
+    box-shadow: var(--sombra-elevada);
+}
+
+.botao-acento {
+    background-color: var(--cor-acento);
+    color: var(--cor-rodape);
+    padding: 12px 24px;
+}
+
+.botao-acento:hover,
+.botao-acento:focus-visible {
+    background-color: #A8CDE2;
+    transform: translateY(-1px);
+}
+
+/* =========================================================
+   CABEÇALHO
+   ========================================================= */
+.cabecalho {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(250, 247, 242, 0.92);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    z-index: 100;
+    padding: 16px 0;
+    transition: box-shadow var(--transicao-padrao);
+}
+
+.cabecalho.com-rolagem {
+    box-shadow: var(--sombra-suave);
+}
+
+.navegacao {
+    max-width: var(--largura-maxima);
+    margin: 0 auto;
+    padding: 0 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logotipo {
+    font-family: var(--fonte-titulo);
+    font-size: 1.8rem;
+    font-weight: 600;
+    font-style: italic;
+    color: var(--cor-primaria);
+    letter-spacing: -0.03em;
+}
+
+.menu {
+    display: flex;
+    gap: 40px;
+}
+
+.menu a {
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--cor-secundaria);
+    position: relative;
+}
+
+.menu a::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--cor-primaria);
+    transition: width var(--transicao-padrao);
+}
+
+.menu a:hover::after,
+.menu a:focus-visible::after {
+    width: 100%;
+}
+
+.menu-mobile {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    padding: 8px;
+}
+
+.menu-mobile span {
+    width: 26px;
+    height: 2px;
+    background-color: var(--cor-secundaria);
+    transition: all var(--transicao-padrao);
+}
+
+.menu-mobile.aberto span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+}
+
+.menu-mobile.aberto span:nth-child(2) {
+    opacity: 0;
+}
+
+.menu-mobile.aberto span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+}
+
+/* =========================================================
+   HERO — GRADIENTE ANIMADO COM ONDAS
+   ========================================================= */
+.hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    padding: 120px 24px 80px;
+    overflow: hidden;
+    background: linear-gradient(135deg, #1E4E72 0%, #2A6B8E 35%, #4A8AAB 70%, #8FBEDC 100%);
+}
+
+.hero-fundo {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.onda {
+    position: absolute;
+    border-radius: 45%;
+    opacity: 0.18;
+}
+
+.onda-1 {
+    width: 200%;
+    height: 200%;
+    top: -50%;
+    left: -50%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.6) 0%, transparent 60%);
+    animation: ondular 18s linear infinite;
+}
+
+.onda-2 {
+    width: 180%;
+    height: 180%;
+    top: -30%;
+    right: -40%;
+    background: radial-gradient(circle, rgba(143, 190, 220, 0.7) 0%, transparent 55%);
+    animation: ondular 22s linear infinite reverse;
+}
+
+.onda-3 {
+    width: 150%;
+    height: 150%;
+    bottom: -40%;
+    left: -25%;
+    background: radial-gradient(circle, rgba(212, 229, 240, 0.4) 0%, transparent 50%);
+    animation: ondular 26s linear infinite;
+}
+
+@keyframes ondular {
+    0% { transform: rotate(0deg) translate(0, 0); }
+    50% { transform: rotate(180deg) translate(30px, 20px); }
+    100% { transform: rotate(360deg) translate(0, 0); }
+}
+
+.hero-conteudo-wrapper {
+    position: relative;
+    z-index: 2;
+    max-width: var(--largura-maxima);
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    align-items: center;
+    gap: 64px;
+    padding: 0 24px;
+}
+
+.hero-conteudo {
+    text-align: left;
+    color: var(--cor-creme);
+}
+
+.hero-imagem {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.moldura-foto {
+    position: relative;
+    width: 100%;
+    max-width: 400px;
+    aspect-ratio: 4/5;
+    background-color: var(--cor-acento-suave);
+    border-radius: 60% 40% 50% 55% / 50% 60% 45% 55%; /* Forma orgânica */
+    overflow: hidden;
+    box-shadow: var(--sombra-elevada);
+    border: 8px solid rgba(250, 247, 242, 0.2);
+    animation: flutuar 6s ease-in-out infinite;
+}
+
+.moldura-foto img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+@keyframes flutuar {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-15px); }
+}
+
+.hero-conteudo h1 {
+    color: var(--cor-creme);
+    margin-bottom: 24px;
+    text-shadow: 0 2px 20px rgba(20, 51, 77, 0.3);
+}
+
+.folhagem-hero {
+    position: absolute;
+    bottom: 40px;
+    right: 5%;
+    width: 140px;
+    height: 140px;
+    opacity: 0.6;
+    z-index: 1;
+}
+
+/* =========================================================
+   SOBRE — FUNDO CREME COM ESPAÇOS NEGATIVOS
+   ========================================================= */
+.sobre {
+    background-color: var(--cor-fundo);
+    text-align: center;
+}
+
+.sobre .conteudo-secao {
+    max-width: 760px;
+}
+
+.sobre h2 {
+    margin-bottom: 32px;
+}
+
+.sobre p {
+    margin-bottom: 20px;
+    color: var(--cor-secundaria);
+}
+
+.ornamento {
+    position: absolute;
+    width: 110px;
+    height: 110px;
+    opacity: 0.7;
+}
+
+.ornamento-esquerda {
+    top: 60px;
+    left: 5%;
+    transform: rotate(-15deg);
+}
+
+.ornamento-direita {
+    bottom: 60px;
+    right: 5%;
+    transform: rotate(15deg);
+}
+
+/* =========================================================
+   PRODUTOS — CARTÕES COM TEXTURA DE LINHO
+   ========================================================= */
+.produtos {
+    background-color: #F0EDE6;
+    text-align: center;
+}
+
+.grade-cartoes {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+    margin-top: 16px;
+}
+
+.cartao {
+    background-color: var(--cor-fundo-cartao);
+    background-image:
+        repeating-linear-gradient(
+            45deg,
+            transparent,
+            transparent 2px,
+            rgba(140, 158, 146, 0.04) 2px,
+            rgba(140, 158, 146, 0.04) 3px
+        ),
+        repeating-linear-gradient(
+            -45deg,
+            transparent,
+            transparent 2px,
+            rgba(140, 158, 146, 0.04) 2px,
+            rgba(140, 158, 146, 0.04) 3px
+        );
+    border: 1px solid rgba(140, 158, 146, 0.3);
+    border-radius: var(--raio-borda);
+    padding: 40px 32px;
+    text-align: center;
+    transition: all var(--transicao-padrao);
+    box-shadow: var(--sombra-suave);
+}
+
+.cartao:hover,
+.cartao:focus-within {
+    transform: translateY(-4px);
+    box-shadow: var(--sombra-cartao);
+    border-color: var(--cor-neutra);
+}
+
+.cartao-icone {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 24px;
+    background-color: var(--cor-acento-suave);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cartao-icone svg {
+    width: 50px;
+    height: 50px;
+}
+
+.cartao h3 {
+    margin-bottom: 16px;
+    font-size: 1.5rem;
+}
+
+.cartao p {
+    color: var(--cor-secundaria);
+    margin-bottom: 24px;
+    font-size: 0.95rem;
+}
+
+.link-cartao {
+    color: var(--cor-primaria);
+    font-weight: 600;
+    font-size: 0.9rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    border-bottom: 2px solid transparent;
+    padding-bottom: 4px;
+    transition: all var(--transicao-padrao);
+}
+
+.link-cartao:hover,
+.link-cartao:focus-visible {
+    color: var(--cor-primaria-clara);
+    border-bottom-color: var(--cor-primaria-clara);
+}
+
+/* =========================================================
+   DEPOIMENTOS — FUNDO AZUL CELESTE SUAVE
+   ========================================================= */
+.depoimentos {
+    background-color: var(--cor-acento-suave);
+    text-align: center;
+}
+
+.grade-depoimentos {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+    margin-top: 16px;
+}
+
+.depoimento {
+    background-color: var(--cor-fundo);
+    border-radius: var(--raio-borda);
+    padding: 40px 32px;
+    text-align: left;
+    position: relative;
+    box-shadow: var(--sombra-suave);
+    transition: transform var(--transicao-padrao);
+}
+
+.depoimento:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--sombra-cartao);
+}
+
+.aspas {
+    font-family: var(--fonte-titulo);
+    font-size: 4rem;
+    color: var(--cor-secundaria);
+    line-height: 1;
+    display: block;
+    margin-bottom: 8px;
+    opacity: 0.4;
+}
+
+.depoimento p {
+    color: var(--cor-secundaria);
+    font-size: 1rem;
+    line-height: 1.7;
+    margin-bottom: 24px;
+    font-style: italic;
+}
+
+.depoimento footer {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    border-top: 1px solid rgba(140, 158, 146, 0.3);
+    padding-top: 20px;
+}
+
+.avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 60% 40% 50% 55% / 50% 60% 45% 55%;
+    flex-shrink: 0;
+}
+
+.avatar-1 {
+    background: linear-gradient(135deg, #8FBEDC, #4A8AAB);
+}
+
+.avatar-2 {
+    background: linear-gradient(135deg, #8C9E92, #4F7350);
+}
+
+.avatar-3 {
+    background: linear-gradient(135deg, #D4E5F0, #8FBEDC);
+}
+
+.depoimento cite {
+    font-style: normal;
+    font-weight: 600;
+    color: var(--cor-primaria);
+    display: flex;
+    flex-direction: column;
+}
+
+.depoimento cite span {
+    font-weight: 400;
+    color: var(--cor-neutra);
+    font-size: 0.85rem;
+    margin-top: 2px;
+}
+
+/* =========================================================
+   RODAPÉ — AZUL OCEÂNICO PROFUNDO
+   ========================================================= */
+.rodape {
+    background-color: var(--cor-rodape);
+    color: var(--cor-creme);
+    padding: 80px 0 32px;
+}
+
+.rodape-grade {
+    display: grid;
+    grid-template-columns: 1.2fr 1.5fr 1fr;
+    gap: 56px;
+    margin-bottom: 56px;
+}
+
+.rodape h3 {
+    color: var(--cor-creme);
+    font-size: 1.5rem;
+    margin-bottom: 16px;
+}
+
+.rodape h4 {
+    color: var(--cor-creme);
+    margin-bottom: 16px;
+    font-size: 1.125rem;
+    font-family: var(--fonte-corpo);
+    font-weight: 600;
+}
+
+.rodape p {
+    color: rgba(250, 247, 242, 0.85);
+    margin-bottom: 16px;
+    font-size: 0.95rem;
+}
+
+.campo-inscricao {
+    display: flex;
+    gap: 8px;
+    margin-top: 16px;
+}
+
+.campo-inscricao input {
+    flex: 1;
+    padding: 12px 16px;
+    border: 1px solid rgba(250, 247, 242, 0.2);
+    background-color: rgba(250, 247, 242, 0.08);
+    color: var(--cor-creme);
+    border-radius: var(--raio-borda);
+    font-family: inherit;
+    font-size: 0.95rem;
+    transition: all var(--transicao-padrao);
+}
+
+.campo-inscricao input::placeholder {
+    color: rgba(250, 247, 242, 0.5);
+}
+
+.campo-inscricao input:focus {
+    outline: none;
+    border-color: var(--cor-acento);
+    background-color: rgba(250, 247, 242, 0.12);
+}
+
+.mensagem-inscricao {
+    font-size: 0.875rem;
+    margin-top: 12px;
+    min-height: 20px;
+    color: var(--cor-acento);
+}
+
+.mensagem-inscricao.erro {
+    color: #F4B8B8;
+}
+
+.lista-contato li {
+    color: rgba(250, 247, 242, 0.85);
+    margin-bottom: 8px;
+    font-size: 0.95rem;
+}
+
+.rodape-base {
+    border-top: 1px solid rgba(250, 247, 242, 0.15);
+    padding-top: 24px;
+    text-align: center;
+}
+
+.rodape-base p {
+    margin: 0;
+    font-size: 0.875rem;
+    color: rgba(250, 247, 242, 0.6);
+}
+
+/* =========================================================
+   FEEDBACK — FORMULÁRIO ELEGANTE
+   ========================================================= */
+.feedback {
+    background-color: var(--cor-fundo);
+    text-align: center;
+}
+
+.formulario-feedback {
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: left;
+    background-color: var(--cor-fundo-cartao);
+    padding: 48px;
+    border-radius: var(--raio-borda);
+    box-shadow: var(--sombra-cartao);
+    border: 1px solid rgba(140, 158, 146, 0.2);
+}
+
+.campo-grupo {
+    margin-bottom: 24px;
+}
+
+.campo-grupo label {
+    display: block;
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: var(--cor-primaria);
+}
+
+.campo-grupo input,
+.campo-grupo textarea {
+    width: 100%;
+    padding: 12px 16px;
+    border: 1px solid rgba(140, 158, 146, 0.3);
+    border-radius: 8px;
+    font-family: inherit;
+    font-size: 1rem;
+    transition: all var(--transicao-padrao);
+    background-color: var(--cor-creme);
+}
+
+.campo-grupo input:focus,
+.campo-grupo textarea:focus {
+    outline: none;
+    border-color: var(--cor-acento);
+    box-shadow: 0 0 0 4px var(--cor-acento-suave);
+}
+
+.feedback-status {
+    margin-top: 16px;
+    font-size: 0.9rem;
+    text-align: center;
+    min-height: 20px;
+}
+
+.feedback-status.sucesso {
+    color: #3D5A3D;
+}
+
+/* =========================================================
+   REDES SOCIAIS E WHATSAPP
+   ========================================================= */
+.redes-sociais {
+    display: flex;
+    gap: 16px;
+    margin-top: 24px;
+}
+
+.redes-sociais a {
+    width: 40px;
+    height: 40px;
+    background-color: rgba(250, 247, 242, 0.1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    transition: all var(--transicao-padrao);
+    color: var(--cor-creme);
+}
+
+.redes-sociais a:hover {
+    background-color: var(--cor-acento);
+    color: var(--cor-rodape);
+    transform: translateY(-3px);
+}
+
+.whatsapp-flutuante {
+    position: fixed;
+    bottom: 32px;
+    right: 32px;
+    width: 60px;
+    height: 60px;
+    background-color: #25D366;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    z-index: 999;
+    transition: all var(--transicao-padrao);
+}
+
+.whatsapp-flutuante:hover {
+    transform: scale(1.1) rotate(5deg);
+    background-color: #128C7E;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* =========================================================
+   RESPONSIVIDADE
+   ========================================================= */
+
+/* Tablet (até 1024px) */
+@media (max-width: 1024px) {
+    .grade-cartoes,
+    .grade-depoimentos {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .rodape-grade {
+        grid-template-columns: 1fr 1fr;
+        gap: 40px;
+    }
+
+    .rodape-bloco:first-child {
+        grid-column: 1 / -1;
+    }
+}
+
+/* Mobile (até 768px) */
+@media (max-width: 768px) {
+    main > section {
+        padding: var(--espacamento-secao-mobile) 0;
+    }
+
+    .menu {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background-color: var(--cor-fundo);
+        flex-direction: column;
+        padding: 24px;
+        gap: 20px;
+        box-shadow: var(--sombra-suave);
+    }
+
+    .menu.aberto {
+        display: flex;
+    }
+
+    .menu-mobile {
+        display: flex;
+    }
+
+    /* Hero em mobile */
+    .hero {
+        min-height: 100vh;
+        padding: 120px 24px 64px;
+    }
+
+    .hero-conteudo-wrapper {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 40px;
+    }
+
+    .hero-conteudo {
+        text-align: center;
+    }
+
+    .moldura-foto {
+        max-width: 280px;
+    }
+
+    .folhagem-hero {
+        width: 90px;
+        height: 90px;
+        bottom: 20px;
+        right: 5%;
+    }
+
+    .ornamento {
+        width: 70px;
+        height: 70px;
+    }
+
+    .grade-cartoes,
+    .grade-depoimentos {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+
+    .rodape {
+        padding: 64px 0 24px;
+    }
+
+    .rodape-grade {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .campo-inscricao {
+        flex-direction: column;
+    }
+}
+
+/* Mobile pequeno (até 480px) */
+@media (max-width: 480px) {
+    .conteudo-secao {
+        padding: 0 20px;
+    }
+
+    .cartao,
+    .depoimento {
+        padding: 32px 24px;
+    }
+
+    .ornamento {
+        display: none;
+    }
+
+    .botao {
+        width: 100%;
+        max-width: 300px;
+    }
+}
+
+/* Movimento reduzido — respeita preferência do usuário */
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+
+    html {
+        scroll-behavior: auto;
+    }
+}
